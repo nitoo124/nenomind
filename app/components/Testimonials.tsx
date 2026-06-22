@@ -15,7 +15,7 @@ const Testimonials = () => {
     {
       name: 'Sarah Johnson',
       role: 'CEO, TechStart Inc.',
-      content: 'Neno Mind transformed our business operations with their AI automation solutions. We\'ve seen a 300% increase in efficiency.',
+      content: "Neno Mind transformed our business operations with their AI automation solutions. We've seen a 300% increase in efficiency.",
       rating: 5,
     },
     {
@@ -88,17 +88,17 @@ const Testimonials = () => {
               className="relative bg-white/[0.02] border border-white/[0.04] rounded-2xl p-8 md:p-12 backdrop-blur-sm"
             >
               <Quote className="w-12 h-12 text-white/5 absolute top-8 right-8" />
-              
+
               <div className="flex items-center gap-1 mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-white/20 text-white/20" />
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              
+
               <p className="text-white/70 text-lg font-light leading-relaxed mb-6">
                 "{testimonials[currentIndex].content}"
               </p>
-              
+
               <div>
                 <div className="text-white/80 font-medium">
                   {testimonials[currentIndex].name}
@@ -110,7 +110,6 @@ const Testimonials = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevSlide}
@@ -118,7 +117,7 @@ const Testimonials = () => {
             >
               <ChevronLeft className="w-4 h-4 text-white/20" />
             </button>
-            
+
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <button
@@ -132,7 +131,7 @@ const Testimonials = () => {
                 />
               ))}
             </div>
-            
+
             <button
               onClick={nextSlide}
               className="p-2 rounded-full border border-white/[0.04] bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-300"

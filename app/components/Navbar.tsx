@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,26 +81,30 @@ export default function Navbar() {
         }}
       >
         <div className="flex items-center justify-between h-full px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full">
-          {/* Logo Section */}
-          <motion.div
-            className="flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse" />
-              {/* Logo Box */}
-              <div className="relative bg-black px-3 py-2 rounded-lg border border-blue-500/30">
-                <span className="text-lg font-bold bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                  NM
-                </span>
-              </div>
-            </div>
-            <span className="hidden sm:inline text-white font-semibold text-sm">
-              Neno Mind
-            </span>
-          </motion.div>
+{/* Logo Section */}
+<Link href="/" className="flex items-center">
+  <motion.div
+    className="flex items-center gap-3 cursor-pointer"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    {/* Logo Image with White Background Removal */}
+    <div className="relative">
+  <div className="bg-transparent">
+   <Image
+  src="/logo.jpeg"
+  width={60}
+  height={60}
+ 
+  className='rounded-full'
+  alt="Logo"
+/>
+  </div>
+  {/* Glow Effect */}
+  <div className="absolute inset-0 bg-blue-500/10 blur-xl -z-10"></div>
+</div>
+  </motion.div>
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">

@@ -107,15 +107,15 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative"
+              className="group relative h-full" // Added h-full
               onMouseEnter={() => setActiveCategory(index)}
             >
               <div className={`absolute -inset-0.5 bg-gradient-to-r ${category.gradient} rounded-2xl blur transition-opacity duration-500 ${
                 activeCategory === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
               }`} />
-              <div className="relative bg-white/[0.02] border border-white/[0.04] rounded-2xl p-8 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500">
+              <div className="relative bg-white/[0.02] border border-white/[0.04] rounded-2xl p-8 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 h-full flex flex-col"> {/* Added h-full flex flex-col */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-white/[0.03] flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-12 h-12 rounded-full bg-white/[0.03] flex items-center justify-center group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
                     <category.icon className="w-5 h-5 text-white/30" />
                   </div>
                   <div className="flex-1">
@@ -124,7 +124,7 @@ const Services = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 flex-1"> {/* Added flex-1 */}
                   {category.services.map((service, serviceIndex) => (
                     <motion.div
                       key={service.name}
@@ -133,13 +133,13 @@ const Services = () => {
                       transition={{ duration: 0.4, delay: 0.3 + serviceIndex * 0.05 }}
                       className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/[0.02] transition-colors duration-300"
                     >
-                      <service.icon className="w-3 h-3 text-white/15" />
+                      <service.icon className="w-3 h-3 text-white/15 flex-shrink-0" />
                       <span className="text-white/50 text-sm font-light">{service.name}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-white/[0.02]">
+                <div className="mt-6 pt-6 border-t border-white/[0.02]"> {/* Removed flex-1 from here */}
                   <button className="text-white/20 hover:text-white/40 text-sm font-light flex items-center gap-2 transition-colors duration-300">
                     Learn More
                     <ArrowRight className="w-3 h-3" />

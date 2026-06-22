@@ -14,6 +14,7 @@ import {
     MessageCircle,
 } from "lucide-react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -31,14 +32,30 @@ const Footer = () => {
                 <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Brand */}
                     <div className="lg:col-span-1">
-                        <Link href="#home" className="flex items-center gap-2 mb-4">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">N</span>
-                            </div>
-                            <span className="text-xl font-bold text-white">
-                                Neno<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Mind</span>
-                            </span>
-                        </Link>
+                     <Link href="/" className="flex items-center">
+  <motion.div
+    className="flex items-center gap-3 cursor-pointer"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    {/* Logo Image with White Background Removal */}
+    <div className="relative">
+  <div className="bg-transparent">
+   <Image
+  src="/logo.jpeg"
+  width={60}
+  height={60}
+ 
+  className='rounded-full mb-2'
+  alt="Logo"
+/>
+  </div>
+  {/* Glow Effect */}
+  <div className="absolute inset-0 bg-blue-500/10 blur-xl -z-10"></div>
+</div>
+  </motion.div>
+</Link>
+
                         <p className="text-white/30 text-sm font-light leading-relaxed">
                             Transforming businesses with cutting-edge AI solutions and web development.
                         </p>
@@ -82,11 +99,11 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
                                 <Phone className="w-4 h-4" />
-                                <span>+1 (555) 123-4567</span>
+                                <span>+92 348 1874354</span>
                             </li>
                             <li className="flex items-center gap-3 text-white/20 text-sm font-light">
                                 <MapPin className="w-4 h-4" />
-                                <span>San Francisco, CA</span>
+                                <span>Pakistan</span>
                             </li>
                         </ul>
                     </div>
