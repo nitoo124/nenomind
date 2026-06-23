@@ -299,7 +299,7 @@ const Contact = () => {
                 {
                   icon: Mail,
                   label: 'Email',
-                  value: 'hello@nenomind.com',
+                  value: 'info@nenomind.tech.com',
                   color: 'text-blue-400',
                 },
                 {

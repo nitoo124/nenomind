@@ -95,7 +95,7 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
                                 <Mail className="w-4 h-4" />
-                                <span>hello@nenomind.com</span>
+                                <span>info@nenomind.tech.com</span>
                             </li>
                             <li className="flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
                                 <Phone className="w-4 h-4" />
