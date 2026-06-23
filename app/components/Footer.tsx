@@ -42,7 +42,7 @@ const Footer = () => {
     <div className="relative">
   <div className="bg-transparent">
    <Image
-  src="/logo.jpeg"
+  src="/logo.png"
   width={60}
   height={60}
  

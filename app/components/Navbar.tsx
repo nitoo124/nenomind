@@ -92,9 +92,9 @@ export default function Navbar() {
     <div className="relative">
   <div className="bg-transparent">
    <Image
-  src="/logo.jpeg"
-  width={60}
-  height={60}
+  src="/logo.png"
+  width={50}
+  height={50}
  
   className='rounded-full'
   alt="Logo"
@@ -158,9 +158,9 @@ export default function Navbar() {
                   whileHover={{ opacity: 0.3 }}
                 />
 
-                <span className="relative flex items-center gap-2">
+                <Link href="#contact" className="relative flex items-center gap-2">
                   Get Free Consultation
-                </span>
+                </Link>
               </button>
             </motion.div>
 

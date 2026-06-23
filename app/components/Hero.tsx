@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, Sparkles, Zap, Shield, TrendingUp, Award, Users, Star, Clock } from 'lucide-react';
+import Link from 'next/link';
 
 // Animated Counter Component
 function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
@@ -628,10 +629,10 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/90 via-purple-500/90 to-pink-500/90 transition-opacity duration-700 group-hover:opacity-80" />
             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <span className="relative flex items-center gap-2.5 tracking-[0.02em]">
+            <Link href="#contact" className="relative flex items-center gap-2.5 tracking-[0.02em]">
               Get Free Consultation
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-500" />
-            </span>
+            </Link>
           </motion.button>
 
           <motion.button
@@ -644,7 +645,7 @@ export default function Hero() {
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
             className="px-8 py-3 text-sm font-medium text-white/40 rounded-full border border-white/[0.04] bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] hover:text-white/60 transition-all duration-700 tracking-[0.02em]"
           >
-            Explore Services
+            <Link href="#services">Explore Services</Link>
           </motion.button>
         </motion.div>
 

@@ -11,6 +11,7 @@ import {
   Layout, ShoppingCart, PenTool,
   TrendingUp, Target, Smartphone
 } from 'lucide-react';
+import Link from 'next/link';
 
 const Services = () => {
   const ref = useRef(null);
@@ -140,10 +141,10 @@ const Services = () => {
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-white/[0.02]"> {/* Removed flex-1 from here */}
-                  <button className="text-white/20 hover:text-white/40 text-sm font-light flex items-center gap-2 transition-colors duration-300">
+                  <Link href="#contact" className="text-white/20 hover:text-white/40 text-sm font-light flex items-center gap-2 transition-colors duration-300">
                     Learn More
                     <ArrowRight className="w-3 h-3" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
