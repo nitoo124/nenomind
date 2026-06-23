@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring, Variants } from 'framer-motion';
 import { ArrowRight, Sparkles, Zap, Shield, TrendingUp, Award, Users, Star, Clock } from 'lucide-react';
 import Link from 'next/link';
 
@@ -28,20 +28,14 @@ function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: strin
     return () => clearInterval(timer);
   }, [value]);
 
-  return (
-    <span>
-      {count}
-      {suffix}
-    </span>
-  );
+  return <>{count}{suffix}</>;
 }
 
 // Animated Gradient Background
 function AnimatedGradientBackground() {
-  const [gradientPosition, setGradientPosition] = useState({ x: 0, y: 0 });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const springX = useSpring(mouseX, { damping: 25, stiffness: 50 });
   const springY = useSpring(mouseY, { damping: 25, stiffness: 50 });
 
@@ -58,12 +52,14 @@ function AnimatedGradientBackground() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <>
       {/* Main Gradient Orb - Interactive */}
       <motion.div
-        style={{ 
-          x: springX, 
+        style={{
+          x: springX,
           y: springY,
+          background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 30%, rgba(236, 72, 153, 0.05) 60%, transparent 80%)',
+          filter: 'blur(60px)',
         }}
         animate={{
           scale: [1, 1.1, 1],
@@ -72,17 +68,15 @@ function AnimatedGradientBackground() {
           scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
         }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 30%, rgba(236, 72, 153, 0.05) 60%, transparent 80%)',
-          filter: 'blur(60px)',
-        }}
       />
 
       {/* Secondary Gradient Orb */}
       <motion.div
-        style={{ 
-          x: springX, 
+        style={{
+          x: springX,
           y: springY,
+          background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(59, 130, 246, 0.08) 40%, rgba(14, 165, 233, 0.04) 70%, transparent 90%)',
+          filter: 'blur(80px)',
         }}
         animate={{
           scale: [1, 1.15, 1],
@@ -93,17 +87,15 @@ function AnimatedGradientBackground() {
           opacity: { duration: 6, repeat: Infinity, ease: "easeInOut" }
         }}
         className="absolute top-[10%] right-[5%] w-[500px] h-[500px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(59, 130, 246, 0.08) 40%, rgba(14, 165, 233, 0.04) 70%, transparent 90%)',
-          filter: 'blur(80px)',
-        }}
       />
 
       {/* Third Gradient Orb */}
       <motion.div
-        style={{ 
-          x: springX, 
+        style={{
+          x: springX,
           y: springY,
+          background: 'radial-gradient(circle at center, rgba(236, 72, 153, 0.1) 0%, rgba(168, 85, 247, 0.06) 40%, rgba(59, 130, 246, 0.03) 70%, transparent 90%)',
+          filter: 'blur(90px)',
         }}
         animate={{
           scale: [1, 1.08, 1],
@@ -114,10 +106,6 @@ function AnimatedGradientBackground() {
           opacity: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }
         }}
         className="absolute bottom-[10%] left-[5%] w-[450px] h-[450px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle at center, rgba(236, 72, 153, 0.1) 0%, rgba(168, 85, 247, 0.06) 40%, rgba(59, 130, 246, 0.03) 70%, transparent 90%)',
-          filter: 'blur(90px)',
-        }}
       />
 
       {/* Floating Gradient Blobs */}
@@ -209,7 +197,7 @@ function AnimatedGradientBackground() {
           backgroundSize: '300px 300px',
         }}
       />
-    </div>
+    </>
   );
 }
 
@@ -217,7 +205,7 @@ function AnimatedGradientBackground() {
 function GeometricShapes() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const springX = useSpring(mouseX, { damping: 30, stiffness: 60 });
   const springY = useSpring(mouseY, { damping: 30, stiffness: 60 });
 
@@ -234,7 +222,7 @@ function GeometricShapes() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <>
       {/* Rotating Cube with Gradient */}
       <motion.div
         style={{ x: springX, y: springY }}
@@ -259,11 +247,11 @@ function GeometricShapes() {
       {/* Floating Octahedron with Gradient */}
       <motion.div
         style={{ x: springX, y: springY }}
-        animate={{ 
+        animate={{
           rotateZ: 360,
           y: [0, -30, 0],
         }}
-        transition={{ 
+        transition={{
           rotateZ: { duration: 25, repeat: Infinity, ease: "linear" },
           y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
         }}
@@ -303,7 +291,7 @@ function GeometricShapes() {
           ))}
         </div>
       </motion.div>
-    </div>
+    </>
   );
 }
 
@@ -311,7 +299,7 @@ function GeometricShapes() {
 function DepthLayers() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const springX = useSpring(mouseX, { damping: 30, stiffness: 50 });
   const springY = useSpring(mouseY, { damping: 30, stiffness: 50 });
 
@@ -330,11 +318,11 @@ function DepthLayers() {
   return (
     <>
       {/* Layer 1 - Background Grid with Gradient */}
-      <motion.div 
+      <motion.div
         style={{ x: springX, y: springY }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -352,14 +340,14 @@ function DepthLayers() {
         style={{ x: springX, y: springY }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div 
+        <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
           style={{
             background: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.05) 40%, transparent 70%)',
             filter: 'blur(80px)',
           }}
         />
-        <div 
+        <div
           className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full"
           style={{
             background: 'radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, rgba(236, 72, 153, 0.04) 40%, transparent 70%)',
@@ -375,7 +363,7 @@ function DepthLayers() {
 function ParticleField3D() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const springX = useSpring(mouseX, { damping: 25, stiffness: 60 });
   const springY = useSpring(mouseY, { damping: 25, stiffness: 60 });
 
@@ -392,7 +380,7 @@ function ParticleField3D() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <>
       {[...Array(40)].map((_, i) => {
         const depth = Math.random() * 0.5 + 0.5;
         const colors = ['from-blue-500/10', 'from-purple-500/10', 'from-pink-500/10', 'from-cyan-500/10'];
@@ -400,7 +388,7 @@ function ParticleField3D() {
         return (
           <motion.div
             key={`particle-${i}`}
-            style={{ 
+            style={{
               x: springX,
               y: springY,
               scale: depth,
@@ -422,7 +410,7 @@ function ParticleField3D() {
               ease: 'easeInOut',
             }}
           >
-            <div 
+            <div
               className={`w-[2px] h-[2px] rounded-full bg-gradient-to-b ${color} to-transparent`}
               style={{
                 boxShadow: `0 0 15px rgba(59, 130, 246, ${0.01 + depth * 0.02})`,
@@ -431,14 +419,14 @@ function ParticleField3D() {
           </motion.div>
         );
       })}
-    </div>
+    </>
   );
 }
 
 // Noise Texture
 function NoiseTexture() {
   return (
-    <div 
+    <div
       className="absolute inset-0 pointer-events-none opacity-[0.015]"
       style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
@@ -452,7 +440,7 @@ function NoiseTexture() {
 // Premium Vignette
 function Vignette() {
   return (
-    <div 
+    <div
       className="absolute inset-0 pointer-events-none"
       style={{
         background: `
@@ -465,7 +453,7 @@ function Vignette() {
 }
 
 export default function Hero() {
-  const containerRef = React.useRef(null);
+  const containerRef = React.useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
@@ -473,75 +461,70 @@ export default function Hero() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
-  // Animation Variants
-  const fadeUpVariants = {
+  // Animation Variants - Fixed with proper Framer Motion v12 types
+  const fadeUpVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { 
-        duration: 1.2, 
-        ease: [0.25, 0.1, 0.25, 1],
+      transition: {
+        duration: 1.2,
+        ease: "easeOut",
       },
     },
   };
 
-  const fadeInVariants = {
+  const fadeInVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { 
-        duration: 1.4, 
-        ease: [0.25, 0.1, 0.25, 1],
+      transition: {
+        duration: 1.4,
+        ease: "easeOut",
       },
     },
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.12,
         delayChildren: 0.3,
-        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   };
 
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.8, 
+      transition: {
+        duration: 0.8,
         delay: 0.8 + i * 0.08,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: "easeOut",
       },
     }),
   };
 
-  const statVariants = {
+  const statVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.8, 
+      transition: {
+        duration: 0.8,
         delay: 1.1 + i * 0.06,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: "easeOut",
       },
     }),
   };
 
   return (
-    <section
-      ref={containerRef}
-      className="relative w-full min-h-screen bg-[#0a0a0f] overflow-hidden"
-    >
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-[#050508]">
       {/* Base Layer */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0d0d1a] to-[#08080c]" />
       
       {/* Animated Gradient Background */}
       <AnimatedGradientBackground />
@@ -660,7 +643,7 @@ export default function Hero() {
             { icon: Zap, text: 'AI Automation' },
             { icon: Shield, text: 'Custom Solutions' },
             { icon: TrendingUp, text: 'Growth Strategy' },
-          ].map((item, i) => (
+          ].map((item) => (
             <motion.div
               key={item.text}
               variants={fadeUpVariants}
@@ -714,7 +697,7 @@ export default function Hero() {
         <motion.div
           initial={{ width: 0, opacity: 0 }}
           animate={{ width: '60px', opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 1.5, delay: 1.8, ease: "easeOut" }}
           className="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent mx-auto mt-12"
         />
       </div>
@@ -722,7 +705,7 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 5, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2.5">
