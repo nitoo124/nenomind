@@ -299,7 +299,7 @@ const Contact = () => {
                 {
                   icon: Mail,
                   label: 'Email',
-                  value: 'info@nenomind.tech.com',
+                  value: 'info@nenomind.tech',
                   color: 'text-blue-400',
                 },
                 {
@@ -320,7 +320,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-colors group"
+                  className=" cursor-pointer flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-colors group"
                 >
                   <item.icon className={`w-5 h-5 ${item.color} flex-shrink-0`} />
                   <div>

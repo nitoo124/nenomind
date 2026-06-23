@@ -93,15 +93,15 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white/60 text-sm font-medium mb-4">Contact</h4>
                         <ul className="space-y-3">
-                            <li className="flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
+                            <li className=" cursor-pointer flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
                                 <Mail className="w-4 h-4" />
-                                <span>info@nenomind.tech.com</span>
+                                <span>info@nenomind.tech</span>
                             </li>
-                            <li className="flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
+                            <li className=" cursor-pointer flex items-center gap-3 text-white/20 hover:text-white/40 text-sm font-light transition-colors duration-300">
                                 <Phone className="w-4 h-4" />
                                 <span>+92 348 1874354</span>
                             </li>
-                            <li className="flex items-center gap-3 text-white/20 text-sm font-light">
+                            <li className=" cursor-pointer flex items-center gap-3 text-white/20 text-sm font-light">
                                 <MapPin className="w-4 h-4" />
                                 <span>Pakistan</span>
                             </li>
